@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="skeleton.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans|Rubik:700|IBM+Plex+Mono">
+  {{#each data.stylesheets}}
+  <link rel="stylesheet" href="{{{this}}}">
+  {{/each}}
   <title>r0b design</title>
 </head>
 <body class="skeleton-wrapper">

@@ -30,8 +30,6 @@ function makeSass({ colors = [], fonts = {} }) {
 
     for (let name in variables) {
       allColors.push(`"${name}": $${name}`)
-      // console.log(variableBlock[name])
-      // for (let)
       sass.push(`$${name}: ${variables[name]}`)
     }
 
@@ -126,8 +124,6 @@ async function renderTemplates(data, sass, base = 'src/templates') {
     sitenav: makeSiteNav(templates, base)
   }
 
-  console.log(ctx)
-
   for (let file of templates) {
     if (!file.endsWith('.html.hbs')) continue
 
@@ -137,6 +133,7 @@ async function renderTemplates(data, sass, base = 'src/templates') {
       join('dist', nameTemplate(file, base, '.html.hbs', '.html')),
       skeleton({
         content: Handlebars.compile(templateData)(ctx, { data: ctx }),
+        data: data,
         sitenav: ctx.sitenav
       })
     )
