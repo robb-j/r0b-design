@@ -10,10 +10,12 @@ $border-color: #ccc
 $heavy-text-color: #555
 $light-text-color: #888
 
-body
-  margin: 0
+=skeletonify
   font-family: $family-sans-serif
   color: $light-text-color
+
+body
+  margin: 0
 
 .skeleton-wrapper
   display: flex
@@ -25,6 +27,7 @@ body
     margin: $gutter
 
 .skeleton-header
+  +skeletonify
   padding: $gutter
   background: #353A43
   border-bottom: 2px solid black
@@ -37,12 +40,16 @@ body
       margin-left: $gutter * 1
 
 .skeleton-title
+  +skeletonify
+  font-size: 24px
   color: $light-text-color
   margin: 0 0 $gutter
   user-select: all
   border-bottom: 1px solid $border-color
 
 .skeleton-heading
+  +skeletonify
+  font-size: 17px
   margin: (2* $gutter) 0 0
   font-style: italic
 
