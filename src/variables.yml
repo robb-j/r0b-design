@@ -1,0 +1,36 @@
+brand:
+  colors:
+    - magenta: '#92374D'
+    - berry: '#8C5483'
+    - liberty: '#4A5899'
+    - blue: '#559CAD'
+    - silver: '#C0B2AA'
+
+utility:
+  colors: 
+  - success: '#23D160'
+  - success-light: 'lighten($success, 10%)'
+  - success-dark: 'darken($success, 10%)'
+  - info: '#209CEE'
+  - info-light: 'lighten($info, 10%)'
+  - info-dark: 'darken($info, 10%)'
+  - warning: '#FFDC57'
+  - warning-light: 'lighten($warning, 10%)'
+  - warning-dark: 'darken($warning, 10%)'
+  - danger: '#FF3760'
+  - danger-light: 'lighten($danger, 10%)'
+  - danger-dark: 'darken($danger, 10%)'
+
+shades:
+  colors:
+    - white:        'hsl(0, 0%, 100%)'
+    - white-ish:    'hsl(0, 0%, 96%)'
+    - gray-light-3: 'hsl(0, 0%, 88%)'
+    - gray-light-2: 'hsl(0, 0%, 80%)'
+    - gray-light-1: 'hsl(0, 0%, 72%)'
+    - gray:         'hsl(0, 0%, 42%)'
+    - gray-dark-1:  'hsl(0, 0%, 32%)'
+    - gray-dark-2:  'hsl(0, 0%, 25%)'
+    - gray-dark-3:  'hsl(0, 0%, 18%)'
+    - black-ish:    'hsl(0, 0%, 7%)'
+    - black:        'hsl(0, 0%, 4%)'

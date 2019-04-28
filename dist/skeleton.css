@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+}
+.skeleton-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.skeleton-wrapper .skeleton-content {
+  flex: 1;
+  margin: 0.5em;
+}
+.skeleton-header {
+  padding: 0.5em;
+  background: #353a43;
+  border-bottom: 2px solid #000;
+  font-size: 0.9em;
+}
+.skeleton-header a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: bold;
+}
+.skeleton-header a:not(:first-child) {
+  margin-left: 0.5em;
+}
+.color-group .color-group-name {
+  margin: 0 0 0.3em;
+  user-select: all;
+}
+.color-group .color-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -0.5em 1.5em;
+}
+.color-group .color-list .color-block {
+  border: 1px solid #000;
+  border-radius: 6px;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
+    monospace;
+  margin-bottom: 0.5em;
+}
+.color-group .color-list .color-block .color-name {
+  display: block;
+  margin: 0.3em 0.5em 0;
+  user-select: all;
+}
+.color-group .color-list .color-block:not(first-child) {
+  margin-left: 0.5em;
+}
+.color-group .color-list .color-block .color-box {
+  width: 160px;
+  height: 40px;
+  border-radius: 4px;
+  margin: 0 0.3em 0.3em;
+}
