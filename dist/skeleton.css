@@ -8,6 +8,13 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background: repeating-linear-gradient(
+    45deg,
+    #f6f6f6,
+    #f6f6f6 10px,
+    #fafafa 10px,
+    #fafafa 20px
+  );
 }
 .skeleton-wrapper .skeleton-content {
   flex: 1;
@@ -29,10 +36,15 @@ body {
 }
 .skeleton-title {
   color: #888;
-  margin: 0 0 0.3rem;
+  margin: 0 0 0.5rem;
   user-select: all;
+  border-bottom: 1px solid #ccc;
 }
 .skeleton-heading {
+  margin: 1rem 0 0;
+  font-style: italic;
+}
+.skeleton-variable {
   margin: 0;
   color: #555;
   font-weight: 400;
@@ -47,17 +59,22 @@ body {
   border-radius: 6px;
   margin-bottom: 0.5rem;
   padding: 0.3rem;
+  background-color: #fff;
 }
 .skeleton-group {
   margin-top: 3rem;
 }
 .skeleton-example {
-  padding: 1em 0 2em;
+  background-color: #fff;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.05);
+  margin: 0 0 0.5rem;
+  padding: 1px;
+  box-sizing: border-box;
 }
 .color-list {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -0.5rem;
+  margin: 0.5rem -0.5rem 0;
 }
 .color-list .skeleton-block:not(first-child) {
   margin-left: 0.5rem;

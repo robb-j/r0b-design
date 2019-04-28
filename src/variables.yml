@@ -8,17 +8,23 @@ brand:
 
 utility:
   colors: 
-  - success: '#23D160'
-  - success-light: 'lighten($success, 10%)'
+  - primary: '$berry'
+  - primary-light: 'lighten($primary, 40%)'
+  - primary-dark: 'darken($primary, 10%)'
+  - secondary: '$liberty'
+  - secondary-light: 'lighten($secondary, 40%)'
+  - secondary-dark: 'darken($secondary, 10%)'
+  - success: '#2BA58D'
+  - success-light: 'lighten($success, 40%)'
   - success-dark: 'darken($success, 10%)'
-  - info: '#209CEE'
-  - info-light: 'lighten($info, 10%)'
+  - info: '#49ACF0'
+  - info-light: 'lighten($info, 30%)'
   - info-dark: 'darken($info, 10%)'
-  - warning: '#FFDC57'
-  - warning-light: 'lighten($warning, 10%)'
+  - warning: '#FED766'
+  - warning-light: 'lighten($warning, 22%)'
   - warning-dark: 'darken($warning, 10%)'
-  - danger: '#FF3760'
-  - danger-light: 'lighten($danger, 10%)'
+  - danger: '#F42A03'
+  - danger-light: 'lighten($danger, 40%)'
   - danger-dark: 'darken($danger, 10%)'
 
 shades:

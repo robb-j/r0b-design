@@ -1,12 +1,67 @@
-{{#each variables}}
 <div class="skeleton-group">
-  <h2 class="skeleton-title">{{@key}}</h2>
-  {{#if colors }}
-  {{> color-list colors=colors}}
-  {{/if}}
-
-  {{#if fonts }}
-  {{> font-list fonts=fonts message=@data.longTitle}}
-  {{/if}}
+  <h2 class="skeleton-title">brand</h2>
+  <div class="color-list">
+    {{> color-block name="magenta" }}
+    {{> color-block name="berry" }}
+    {{> color-block name="liberty" }}
+    {{> color-block name="blue" }}
+    {{> color-block name="silver" }}
+  </div>
 </div>
-{{/each}}
+
+<div class="skeleton-group">
+  <h2 class="skeleton-title">utility</h2>
+  <div class="color-list">
+    {{> color-block name="primary" }}
+    <!-- {{> color-block name="primary-light" }}
+    {{> color-block name="primary-dark" }} -->
+    
+    {{> color-block name="secondary" }}
+    <!-- {{> color-block name="secondary-light" }}
+    {{> color-block name="secondary-dark" }} -->
+    
+    {{> color-block name="success" }}
+    <!-- {{> color-block name="success-light" }}
+    {{> color-block name="success-dark" }} -->
+    
+    {{> color-block name="info" }}
+    <!-- {{> color-block name="info-light" }}
+    {{> color-block name="info-dark" }} -->
+    
+    {{> color-block name="warning" }}
+    <!-- {{> color-block name="warning-light" }}
+    {{> color-block name="warning-dark" }} -->
+    
+    {{> color-block name="danger" }}
+    <!-- {{> color-block name="danger-light" }}
+    {{> color-block name="danger-dark" }} -->
+  </div>
+</div>
+
+<div class="skeleton-group">
+  <h2 class="skeleton-title">shades</h2>
+  <div class="color-list">
+    {{> color-block name="white" }}
+    {{> color-block name="white-ish" }}
+    
+    {{> color-block name="gray-light-3" }}
+    {{> color-block name="gray-light-2" }}
+    {{> color-block name="gray-light-1" }}
+    {{> color-block name="gray" }}
+    {{> color-block name="gray-dark-1" }}
+    {{> color-block name="gray-dark-2" }}
+    {{> color-block name="gray-dark-3" }}
+    
+    {{> color-block name="black-ish" }}
+    {{> color-block name="black" }}
+  </div>
+</div>
+
+<div class="skeleton-group">
+  <h2 class="skeleton-title">typography</h2>
+  <div class="font-list">
+    {{> font-block name="body" message=@data.text.paragraph }}
+    {{> font-block name="display" message=@data.text.paragraph }}
+    {{> font-block name="monospace" message=@data.text.paragraph }}
+  </div>
+</div>
