@@ -36,7 +36,7 @@ shades:
     - black:        'hsl(0, 0%, 4%)'
 
 typography:
-  typography:
+  fonts:
     - family-body: "'Noto Sans', sans-serif"
     - family-display: Rubik, sans-serif
     - family-monospace: "'IBM Plex Mono', monospace"
