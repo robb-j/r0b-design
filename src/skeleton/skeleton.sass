@@ -2,13 +2,18 @@ $family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sa
 
 $family-monospace: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace
 
-$spacing: 3em
-$gutter: 0.5em
-$pad: 0.3em
+$spacing: 3rem
+$gutter: 0.5rem
+$pad: 0.3rem
+
+$border-color: #ccc
+$heavy-text-color: #555
+$light-text-color: #888
 
 body
   margin: 0
   font-family: $family-sans-serif
+  color: $light-text-color
 
 .skeleton-wrapper
   display: flex
@@ -31,22 +36,30 @@ body
       margin-left: $gutter * 1
 
 .skeleton-title
+  color: $light-text-color
   margin: 0 0 $pad
   user-select: all
 
-.skeleton-label
+.skeleton-heading
+  margin: 0
+  color: $heavy-text-color
+  font-weight: 400
   font-family: $family-monospace
-  display: block
+  font-size: 0.8em
+  margin-bottom: 0.2em
   user-select: all
 
 .skeleton-block
-  border: 1px solid black
+  border: 1px dashed $border-color
   border-radius: 6px
   margin-bottom: $gutter
   padding: $pad
 
-.variable-group
+.skeleton-group
   margin-top: $spacing
+
+.skeleton-example
+  padding: 1em 0 2em
 
 .color-list
   display: flex
@@ -62,3 +75,4 @@ body
 .font-list
   .font-box
     margin: $pad 0 0
+    font-size: 1.2em

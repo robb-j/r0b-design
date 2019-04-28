@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  color: #888;
 }
 .skeleton-wrapper {
   display: flex;
@@ -10,10 +11,10 @@ body {
 }
 .skeleton-wrapper .skeleton-content {
   flex: 1;
-  margin: 0.5em;
+  margin: 0.5rem;
 }
 .skeleton-header {
-  padding: 0.5em;
+  padding: 0.5rem;
   background: #353a43;
   border-bottom: 2px solid #000;
   font-size: 0.9em;
@@ -24,34 +25,42 @@ body {
   font-weight: bold;
 }
 .skeleton-header a:not(:first-child) {
-  margin-left: 0.5em;
+  margin-left: 0.5rem;
 }
 .skeleton-title {
-  margin: 0 0 0.3em;
+  color: #888;
+  margin: 0 0 0.3rem;
   user-select: all;
 }
-.skeleton-label {
+.skeleton-heading {
+  margin: 0;
+  color: #555;
+  font-weight: 400;
   font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
     monospace;
-  display: block;
+  font-size: 0.8em;
+  margin-bottom: 0.2em;
   user-select: all;
 }
 .skeleton-block {
-  border: 1px solid #000;
+  border: 1px dashed #ccc;
   border-radius: 6px;
-  margin-bottom: 0.5em;
-  padding: 0.3em;
+  margin-bottom: 0.5rem;
+  padding: 0.3rem;
 }
-.variable-group {
-  margin-top: 3em;
+.skeleton-group {
+  margin-top: 3rem;
+}
+.skeleton-example {
+  padding: 1em 0 2em;
 }
 .color-list {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -0.5em;
+  margin: 0 -0.5rem;
 }
 .color-list .skeleton-block:not(first-child) {
-  margin-left: 0.5em;
+  margin-left: 0.5rem;
 }
 .color-list .color-box {
   width: 160px;
@@ -59,5 +68,6 @@ body {
   border-radius: 4px;
 }
 .font-list .font-box {
-  margin: 0.3em 0 0;
+  margin: 0.3rem 0 0;
+  font-size: 1.2em;
 }
