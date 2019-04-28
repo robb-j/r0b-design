@@ -1,0 +1,7 @@
+<div class="typography-list">
+  {{#each typography}}
+  {{#each this}}
+  {{> typography-block name=@key typography=this message=message }}
+  {{/each}}
+  {{/each}}
+</div>

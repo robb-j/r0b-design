@@ -2,6 +2,7 @@ $family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sa
 
 $family-monospace: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace
 
+$spacing: 3em
 $gutter: 0.5em
 $pad: 0.3em
 
@@ -29,28 +30,37 @@ body
     &:not(:first-child)
       margin-left: $gutter * 1
 
-.color-group
-  .color-group-name
-    margin: 0 0 $pad
-    user-select: all
-  .color-list
-    display: flex
-    flex-wrap: wrap
-    margin: 0 (-$gutter) (3 * $gutter)
-    .color-block
-      border: 1px solid black
-      border-radius: 6px
-      font-family: $family-monospace
-      margin-bottom: $gutter
-      .color-name
-        display: block
-        margin: $pad $gutter 0
-        user-select: all
-      &:not(first-child)
-        margin-left: $gutter
-      .color-box
-        width: 160px
-        height: 40px
-        border-radius: 4px
-        margin: 0 ($pad) ($pad)
-  
+.skeleton-title
+  margin: 0 0 $pad
+  user-select: all
+
+.skeleton-label
+  font-family: $family-monospace
+  display: block
+  user-select: all
+
+.skeleton-block
+  border: 1px solid black
+  border-radius: 6px
+  margin-bottom: $gutter
+  padding: $pad
+
+.variable-group
+  margin-top: $spacing
+
+.color-list
+  display: flex
+  flex-wrap: wrap
+  margin: 0 (-$gutter)
+  .skeleton-block:not(first-child)
+    margin-left: $gutter
+  .color-box
+    width: 160px
+    height: 40px
+    border-radius: 4px
+
+.typography-list
+  .typography-box
+    margin: $pad 0 0
+    // margin: 0 0 0 1em
+    // flex: 1 0

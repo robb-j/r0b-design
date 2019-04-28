@@ -1,0 +1,7 @@
+<div class="color-list">
+  {{#each colors}}
+  {{#each this}}
+  {{> color-block name=@key color=this}}
+  {{/each}}
+  {{/each}}
+</div>

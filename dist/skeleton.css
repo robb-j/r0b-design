@@ -26,33 +26,38 @@ body {
 .skeleton-header a:not(:first-child) {
   margin-left: 0.5em;
 }
-.color-group .color-group-name {
+.skeleton-title {
   margin: 0 0 0.3em;
   user-select: all;
 }
-.color-group .color-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -0.5em 1.5em;
-}
-.color-group .color-list .color-block {
-  border: 1px solid #000;
-  border-radius: 6px;
+.skeleton-label {
   font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
     monospace;
-  margin-bottom: 0.5em;
-}
-.color-group .color-list .color-block .color-name {
   display: block;
-  margin: 0.3em 0.5em 0;
   user-select: all;
 }
-.color-group .color-list .color-block:not(first-child) {
+.skeleton-block {
+  border: 1px solid #000;
+  border-radius: 6px;
+  margin-bottom: 0.5em;
+  padding: 0.3em;
+}
+.variable-group {
+  margin-top: 3em;
+}
+.color-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -0.5em;
+}
+.color-list .skeleton-block:not(first-child) {
   margin-left: 0.5em;
 }
-.color-group .color-list .color-block .color-box {
+.color-list .color-box {
   width: 160px;
   height: 40px;
   border-radius: 4px;
-  margin: 0 0.3em 0.3em;
+}
+.typography-list .typography-box {
+  margin: 0.3em 0 0;
 }

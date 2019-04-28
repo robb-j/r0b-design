@@ -70,7 +70,7 @@ async function renderStyles(variables, base = 'src/styles') {
   await writeFile(`dist/styles.css`, styles.join(''))
 }
 
-async function renderTemplates(data, variables, base = 'src/templates') {
+async function renderTemplates(ctx, sass, base = 'src/templates') {
   let templates = await readdir(base)
 
   let skeleton = Handlebars.compile(
@@ -78,7 +78,7 @@ async function renderTemplates(data, variables, base = 'src/templates') {
   )
 
   let style = await renderSass({
-    data: variables + (await readFile('src/skeleton/skeleton.sass', 'utf8')),
+    data: sass + (await readFile('src/skeleton/skeleton.sass', 'utf8')),
     indentedSyntax: true,
     outputStyle: 'compressed'
   })
@@ -93,7 +93,7 @@ async function renderTemplates(data, variables, base = 'src/templates') {
     await writeFile(
       join('dist', file.replace('.html.hbs', '.html')),
       skeleton({
-        content: Handlebars.compile(templateData)(data),
+        content: Handlebars.compile(templateData)(ctx, { data: ctx }),
         templates: templates.map(t => t.replace('.html.hbs', ''))
       })
     )
@@ -107,17 +107,17 @@ async function renderTemplates(data, variables, base = 'src/templates') {
   try {
     const data = await loadData()
 
-    data.variables = await readYaml('src/variables.yml')
+    const variables = await readYaml('src/variables.yml')
 
     await registerPartials()
 
-    const sass = makeSass(data.variables)
+    const sass = makeSass(variables)
 
     await writeFile('dist/variables.sass', sass)
 
     await renderStyles(sass)
 
-    await renderTemplates(data, sass)
+    await renderTemplates({ data, variables }, sass)
 
     const duration = ms(Date.now() - startTime)
     spinner.succeed(`Built in ${duration}`)

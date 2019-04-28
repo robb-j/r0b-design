@@ -1,5 +1,12 @@
 {{#each variables}}
-{{#if colors}}
-{{> color-group groups=this}}
-{{/if}}
+<div class="variable-group">
+  <h3 class="skeleton-title">{{@key}}</h3>
+  {{#if colors}}
+  {{> color-list colors=colors}}
+  {{/if}}
+
+  {{#if typography}}
+  {{> typography-list typography=typography message=@data.longTitle}}
+  {{/if}}
+</div>
 {{/each}}
