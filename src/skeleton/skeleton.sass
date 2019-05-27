@@ -65,12 +65,17 @@ body
     $tiny: 0.1px
     margin: (-$tiny) (-$tiny) $gutter (-$tiny)
     padding: $tiny
+    &.with-shadow
+      box-shadow: 0 0 $gutter rgba(0, 0, 0, 0.05)
     &.with-light-box
       background-color: white
       box-shadow: 0 0 $gutter rgba(0, 0, 0, 0.05)
     &.with-dark-box
       background-color: #666
       box-shadow: 0 0 $gutter rgba(0, 0, 0, 0.05)
+    &.is-smallish
+      max-width: 320px
+      margin-right: auto
 
 .skeleton-variable
   margin: 0
