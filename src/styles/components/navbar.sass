@@ -1,17 +1,27 @@
+$navbar-outline: $grey-dark
+// $navbar-outline-width: 1px
+
 .navbar
   background-color: transparent
   
-  &, a
+  a
     font-size: 1.05em
     color: $white-ter
-    text-shadow: 1px 1px 2px $black-ter
+    text-shadow: -1px 1px 1px $navbar-outline, 1px 1px 1px $navbar-outline, 1px -1px 0 $navbar-outline, -1px -1px 0 $navbar-outline
+  
+  .burger span
+    box-shadow: -1px 1px 2px $navbar-outline, 1px 1px 2px $navbar-outline, 1px -1px 0 $navbar-outline, -1px -1px 0 $navbar-outline
   
   .navbar-brand
     .navbar-item span
+      font-size: 1.1em
       font-family: $family-monospace
       font-weight: bold
       transform: rotate(-7deg)
       text-decoration: underline
+  
+  .navbar-item:hover
+    // text-shadow: none
   
   .navbar-menu
     font-family: 'Baloo Bhai', $family-sans-serif
