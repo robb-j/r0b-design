@@ -23,6 +23,7 @@
   "dependencies": {
     "bulma": "^0.7.5",
     "dotenv": "^6.2.0",
+    "lodash.set": "^4.3.2",
     "ncp": "^2.0.0"
   },
   "devDependencies": {

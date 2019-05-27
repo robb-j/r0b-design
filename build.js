@@ -1,4 +1,4 @@
-const { join } = require('path')
+const { join, extname } = require('path')
 const { promisify } = require('util')
 const fs = require('fs')
 
@@ -15,6 +15,8 @@ const readFile = promisify(fs.readFile)
 // const readdir = promisify(fs.readdir)
 const writeFile = promisify(fs.writeFile)
 const renderSass = promisify(Sass.render)
+
+const _set = require('lodash.set')
 
 // const readYaml = async path => Yaml.parse(await readFile(path, 'utf8'))
 
@@ -79,6 +81,19 @@ async function loadData(base = 'src/data') {
     Object.assign(data, JSON.parse(await readFile(file, 'utf8')))
   }
   return data
+}
+
+async function loadAssets(base = 'src/assets') {
+  let assets = {}
+  for (let file of await glob(join(base, '**/*.*'))) {
+    let ext = extname(file)
+    _set(
+      assets,
+      nameTemplate(file, base, ext).split('/'),
+      await readFile(file, 'utf8')
+    )
+  }
+  return assets
 }
 
 async function renderStyles() {
@@ -163,6 +178,8 @@ async function renderTemplates(data, sass, base = 'src/templates') {
     await registerPartials()
 
     await renderStyles()
+
+    data.assets = await loadAssets()
 
     await ncp('src/assets', 'dist/assets')
 
