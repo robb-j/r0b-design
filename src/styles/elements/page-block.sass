@@ -21,11 +21,23 @@ $page-block-colors: (("magenta", $magenta), ("liberty", $liberty), ("deep-koamar
     background-color: transparent
     background-image: url(/assets/png/paper-256x256.png)
     background-repeat: repeat
-    padding-top: $page-block-size
+  
+  &.is-inbetween
+    margin-bottom: -$page-block-size 
     padding-bottom: $page-block-size
+    margin-top: -$page-block-size
+    padding-top: $page-block-size
+  
+  // &:not(.has-slope-before)
+  //   margin-top: -$page-block-size 
+  //   padding-top: $page-block-size
+  
+  // &:not(.has-slope-after)
+  //   margin-bottom: -$page-block-size 
+  //   padding-bottom: $page-block-size
   
   &.has-slope-after
-    // margin-bottom: $page-block-size
+    margin-bottom: $page-block-size
     
     &::after
       +setup-slope
@@ -34,13 +46,15 @@ $page-block-colors: (("magenta", $magenta), ("liberty", $liberty), ("deep-koamar
       border-bottom: $page-block-size solid transparent
   
   &.has-slope-before
-    // margin-top: $page-block-size
+    margin-top: $page-block-size
     &::before
       +setup-slope
       top: (1px - $page-block-size)
       border-left: 100vw solid var(--block-color, #{$primary})
       border-top: $page-block-size solid transparent
 
-// NOTE: automaticall conditionally add padding to offset the slope?
+// NOTE: automatically conditionally add padding to offset the slope?
+//       ~ otherwise it bakes in that 'paper' is the seperator
 // .page-block.has-slope-after +.page-block
+//   margin-top: -$page-block-size 
 //   padding-top: $page-block-size
