@@ -76,6 +76,9 @@ body
     &.is-smallish
       max-width: 320px
       margin-right: auto
+    &.with-no-padding
+      margin-left: -$gutter
+      margin-right: -$gutter
 
 .skeleton-variable
   margin: 0
@@ -109,6 +112,14 @@ body
     margin: $pad 0 0
     font-size: 1.2em
 
-.skeleton-sample-box
+.skeleton-white-box
   height: 100px
   background: white
+
+.skeleton-clear-box
+  height: 100px
+  background: transparent
+
+.skeleton-page-box
+  height: 75vh
+  background: transparent

@@ -1,0 +1,46 @@
+$page-block-size: 50px
+
+=setup-slope
+  content: ''
+  position: absolute
+  left: 0
+  right: 0
+  z-index: 1
+
+$page-block-colors: (("magenta", $magenta), ("liberty", $liberty), ("deep-koamaru", $deep-koamaru))
+
+.page-block
+  background-color: var(--block-color, #{$primary})
+  position: relative
+  
+  @each $name, $color in $page-block-colors
+    &.is-#{$name}
+      --block-color: #{$color}
+  
+  &.is-paper
+    background-color: transparent
+    background-image: url(/assets/png/paper-256x256.png)
+    background-repeat: repeat
+    padding-top: $page-block-size
+    padding-bottom: $page-block-size
+  
+  &.has-slope-after
+    // margin-bottom: $page-block-size
+    
+    &::after
+      +setup-slope
+      bottom: 1px - $page-block-size
+      border-left: 100vw solid var(--block-color, #{$primary})
+      border-bottom: $page-block-size solid transparent
+  
+  &.has-slope-before
+    // margin-top: $page-block-size
+    &::before
+      +setup-slope
+      top: (1px - $page-block-size)
+      border-left: 100vw solid var(--block-color, #{$primary})
+      border-top: $page-block-size solid transparent
+
+// NOTE: automaticall conditionally add padding to offset the slope?
+// .page-block.has-slope-after +.page-block
+//   padding-top: $page-block-size

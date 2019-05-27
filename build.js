@@ -151,7 +151,7 @@ class StopWatch {
     data.assets = await loadAssets()
     watch.record('#loadAssets')
 
-    await exec(`cp -R src/assets dist/assets`)
+    await exec(`cp -R src/assets dist`)
     watch.record('#copyAssets')
 
     await renderTemplates(data)
