@@ -1,92 +1,43 @@
 <div class="skeleton-group">
-  <h2 class="skeleton-title">colors</h2>
+  <h2>colors</h2>
   
-  <h3 class="skeleton-heading">brand</h3>
-  <div class="color-list">
-    {{> color-block name="magenta" }}
-    {{> color-block name="berry" }}
-    {{> color-block name="liberty" }}
-    {{> color-block name="blue" }}
-    {{> color-block name="silver" }}
-  </div>
-  
-  <h3 class="skeleton-heading">utility</h3>
+  <h3>utility</h3>
   <div class="color-list">
     {{> color-block name="primary" }}
-    {{> color-block name="secondary" }}
     {{> color-block name="success" }}
     {{> color-block name="info" }}
     {{> color-block name="warning" }}
     {{> color-block name="danger" }}
   </div>
   
-  <h3 class="skeleton-heading">shades</h3>
+  <h3>whites</h3>
   <div class="color-list">
     {{> color-block name="white" }}
-    {{> color-block name="white-ish" }}
-    
-    {{> color-block name="gray-light-3" }}
-    {{> color-block name="gray-light-2" }}
-    {{> color-block name="gray-light-1" }}
-    {{> color-block name="gray" }}
-    {{> color-block name="gray-dark-1" }}
-    {{> color-block name="gray-dark-2" }}
-    {{> color-block name="gray-dark-3" }}
-    
-    {{> color-block name="black-ish" }}
+    {{> color-block name="white-bis" }}
+    {{> color-block name="white-ter" }}
+  </div>
+  
+  <h3>greys</h3>
+  <div class="color-list">
+    {{> color-block name="grey-lighter" }}
+    {{> color-block name="grey-light" }}
+    {{> color-block name="grey" }}
+    {{> color-block name="grey-dark" }}
+    {{> color-block name="grey-darker" }}
+  </div>
+  
+  <h3>blacks</h3>
+  <div class="color-list">
+    {{> color-block name="black-ter" }}
+    {{> color-block name="black-bis" }}
     {{> color-block name="black" }}
   </div>
 </div>
 
 <div class="skeleton-group">
-  <h2 class="skeleton-title">swatches</h2>
-  <h3 class="skeleton-heading">primary</h3>
-  <div class="color-list">
-    {{> color-block name="primary-light" }}
-    {{> color-block name="primary" }}
-    {{> color-block name="primary-dark" }}
-  </div>
-  
-  <h3 class="skeleton-heading">secondary</h3>
-  <div class="color-list">
-    {{> color-block name="secondary-light" }}
-    {{> color-block name="secondary" }}
-    {{> color-block name="secondary-dark" }}
-  </div>
-  
-  <h3 class="skeleton-heading">info</h3>
-  <div class="color-list">
-    {{> color-block name="info-light" }}
-    {{> color-block name="info" }}
-    {{> color-block name="info-dark" }}
-  </div>
-  
-  <h3 class="skeleton-heading">success</h3>
-  <div class="color-list">
-    {{> color-block name="success-light" }}
-    {{> color-block name="success" }}
-    {{> color-block name="success-dark" }}
-  </div>
-  
-  <h3 class="skeleton-heading">warning</h3>
-  <div class="color-list">
-    {{> color-block name="warning-light" }}
-    {{> color-block name="warning" }}
-    {{> color-block name="warning-dark" }}
-  </div>
-  
-  <h3 class="skeleton-heading">danger</h3>
-  <div class="color-list">
-    {{> color-block name="danger-light" }}
-    {{> color-block name="danger" }}
-    {{> color-block name="danger-dark" }}
-  </div>
-</div>
-
-<div class="skeleton-group">
-  <h2 class="skeleton-title">typography</h2>
+  <h2>typography</h2>
   <div class="font-list">
-    {{> font-block name="body" message=@data.text.paragraph }}
+    {{> font-block name="sans-serif" message=@data.text.paragraph }}
     {{> font-block name="monospace" message=@data.text.paragraph }}
   </div>
 </div>
