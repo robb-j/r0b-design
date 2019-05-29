@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "",
   "main": "src/index.js",
-  "bin": "cli/index.js",
   "repository": "robb-j/r0b-design",
   "author": "Rob Anderson (https://r0b.io)",
   "license": "MIT",
