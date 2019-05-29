@@ -22,7 +22,7 @@ yargs
         })
         .option('verbose', {
           describe: 'Output debug info',
-          default: process.env.NODE_ENV === 'development',
+          default: false,
           type: 'boolean'
         }),
     args => generateAssets(args)

@@ -3,11 +3,15 @@
 FROM node:10-alpine as builder
 WORKDIR /app
 COPY ["package*.json", "/app/"]
-RUN npm ci
-COPY [ ".", "/app/" ]
-RUN npm run build > /dev/null
+ENV NODE_ENV development
+RUN npm ci &> /dev/null
+COPY [ "src", "/app/src" ]
+COPY [ "cli", "/app/cli" ]
+RUN mkdir dist
+RUN node cli build --website
+RUN ls /app/dist
 
 # Swaps to nginx and copies the compiled html ready to be serverd
-# Uses a configurable nginx which can pass envionment variables to JavaScript
 FROM nginx:1-alpine
+COPY ["nginx.conf", "/etc/nginx/conf.d/default.conf"]
 COPY --from=builder /app/dist /usr/share/nginx/html

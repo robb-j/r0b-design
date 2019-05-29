@@ -9,6 +9,7 @@ const Handlebars = require('handlebars')
 const Fiber = require('fibers')
 
 const glob = promisify(require('glob'))
+const rimraf = promisify(require('rimraf'))
 const exec = promisify(require('child_process').exec)
 const readFile = promisify(fs.readFile)
 const writeFile = promisify(fs.writeFile)
@@ -78,6 +79,17 @@ async function renderStyles(generateWebsite = false) {
   ])
 }
 
+async function setupDistFolder() {
+  try {
+    // If we have access to the folder, remove its contents
+    fs.statSync('dist')
+    await rimraf('dist/*')
+  } catch (error) {
+    // If we don't have access, make the folder
+    fs.mkdirSync('dist')
+  }
+}
+
 // Filter template file paths to generate a name and filter out non-numbered names
 function makeSiteNav(templates, base) {
   return templates
@@ -122,9 +134,8 @@ async function generateAssets({ website = false, verbose = false }) {
     const data = await loadData()
     watch.record('#loadData')
 
-    // Clean up the dist directory
-    await exec(`mkdir -p dist`)
-    await exec(`rm -r dist/*`)
+    await setupDistFolder()
+    watch.record('#setupDistFolder')
 
     await registerPartials()
     watch.record('#registerPartials')
