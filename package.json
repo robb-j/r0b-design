@@ -6,6 +6,9 @@
   "repository": "robb-j/r0b-design",
   "author": "Rob Anderson (https://r0b.io)",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "coverage": "jest --coverage",
     "lint": "eslint src",
