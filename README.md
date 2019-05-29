@@ -1,22 +1,24 @@
-# A Node project
+# r0b design
 
-```bash
-# WIP deploy tmp
+This repo / package is the styles for https://r0b.io.
+It is also used to generate https://ux.r0b.io.
 
-tar -czvf ux.tar.gz dist
+## What is it?
 
-ssh r0b rm -r /srv/apps/files/ux
-scp ux.tar.gz r0b:/srv/apps/files/ux.tar.gz
-ssh r0b tar -C /srv/apps/files -xzvf /srv/apps/files/ux.tar.gz
-ssh r0b mv /srv/apps/files/dist /srv/apps/files/ux
-```
+This repo is a set of css styles for r0b.io, generated with
+[sass](https://sass-lang.com/).
 
-## Misc
+There is also a ux site used to visualise css rules for development.
+It's based on on [atomic design](http://atomicdesign.bradfrost.com).
 
-I should link to the font-awesome license:
-https://fontawesome.com/license
+The purpose is for my site and its sub-sites to be able to depend on this package
+to get all their style needs and I can also develop the styles independently.
 
 ## CLI Usage
+
+When cloned locally, there is a CLI to build assets and run a watch server.
+Built assets are placed into `dist/`, it contains compressed css and image assets.
+The watch server runs on port `8080`, watching for file changes and rebuilding assets.
 
 ```
 cli
@@ -33,6 +35,19 @@ Options:
   --verbose   Output debug info                       [boolean] [default: false]
   -h, --help  Show help                                                [boolean]
 ```
+
+## UX site
+
+Theres a docker build to generate the ux site which builds the assets and serves them with
+[nginx](https://www.nginx.com/).
+
+The docker image is pushed here: [robbj/r0b-design](https://hub.docker.com/r/robbj/r0b-design).
+
+> The deployment of this image isn't locked down yet
+
+## Misc
+
+I should link to the font-awesome license: https://fontawesome.com/license
 
 ---
 
