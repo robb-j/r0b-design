@@ -1,6 +1,5 @@
 //
-// The app entrypoint
+// The app entrypoint, for when required
 //
-;(async () => {
-  console.log('Hello, Geoff!')
-})()
+
+module.exports = {}

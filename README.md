@@ -16,6 +16,12 @@ ssh r0b mv /srv/apps/files/dist /srv/apps/files/ux
 I should link to the font-awesome license:
 https://fontawesome.com/license
 
+## CLI Design
+
+```bash
+cli build
+```
+
 ---
 
 > This project was set up by [puggle](https://npm.im/puggle)

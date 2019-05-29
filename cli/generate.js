@@ -5,19 +5,18 @@ const fs = require('fs')
 const ora = require('ora')
 const ms = require('ms')
 const Sass = require('sass')
-// const Yaml = require('yaml')
 const Handlebars = require('handlebars')
 const Fiber = require('fibers')
 
 const glob = promisify(require('glob'))
-// const ncp = promisify(require('ncp').ncp)
 const exec = promisify(require('child_process').exec)
 const readFile = promisify(fs.readFile)
-// const readdir = promisify(fs.readdir)
 const writeFile = promisify(fs.writeFile)
 const renderSass = promisify(Sass.render)
 
 const _set = require('lodash.set')
+
+const { StopWatch } = require('./stop-watch')
 
 function nameTemplate(file, base, extension, newExtension = '') {
   return file.replace(`${base}/`, '').replace(extension, '') + newExtension
@@ -56,25 +55,26 @@ async function loadAssets(base = 'src/assets') {
   return assets
 }
 
-async function renderStyles() {
+async function renderStyles(generateWebsite = false) {
   const [theme, skeleton] = await Promise.all([
     renderSass({
       file: 'src/styles/index.sass',
-      includePaths: [join(__dirname, 'node_modules')],
+      includePaths: [join(__dirname, '../node_modules')],
       outputStyle: 'compressed',
       Fiber
     }),
-    renderSass({
-      file: 'src/skeleton/skeleton.sass',
-      indentedSyntax: true,
-      outputStyle: 'compressed',
-      Fiber
-    })
+    generateWebsite &&
+      renderSass({
+        file: 'src/skeleton/skeleton.sass',
+        indentedSyntax: true,
+        outputStyle: 'compressed',
+        Fiber
+      })
   ])
 
   await Promise.all([
     writeFile(`dist/styles.css`, theme.css),
-    writeFile('dist/skeleton.css', skeleton.css)
+    generateWebsite && writeFile('dist/skeleton.css', skeleton.css)
   ])
 }
 
@@ -113,27 +113,7 @@ async function renderTemplates(data, sass, base = 'src/templates') {
   }
 }
 
-class StopWatch {
-  constructor() {
-    this.startedAt = Date.now()
-    this.timeseries = []
-  }
-
-  record(title) {
-    this.timeseries.push({ title, time: Date.now() })
-  }
-
-  dump() {
-    let currentTime = this.startedAt
-
-    for (let item of this.timeseries) {
-      console.log(`- ${ms(item.time - currentTime)} ${item.title}`)
-      currentTime = item.time
-    }
-  }
-}
-
-;(async () => {
+async function generateAssets({ website = false, verbose = false }) {
   const startTime = Date.now()
   const spinner = ora().start('Building')
   const watch = new StopWatch()
@@ -142,10 +122,14 @@ class StopWatch {
     const data = await loadData()
     watch.record('#loadData')
 
+    // Clean up the dist directory
+    await exec(`mkdir -p dist`)
+    await exec(`rm -r dist/*`)
+
     await registerPartials()
     watch.record('#registerPartials')
 
-    await renderStyles()
+    await renderStyles(website)
     watch.record('#renderStyles')
 
     data.assets = await loadAssets()
@@ -154,14 +138,21 @@ class StopWatch {
     await exec(`cp -R src/assets dist`)
     watch.record('#copyAssets')
 
-    await renderTemplates(data)
-    watch.record('#renderTemplates')
+    if (website) {
+      await renderTemplates(data)
+      watch.record('#renderTemplates')
+    }
 
     const duration = ms(Date.now() - startTime)
     spinner.succeed(`Built in ${duration}`)
-    // watch.dump()
+
+    if (verbose) {
+      watch.dump()
+    }
   } catch (error) {
     spinner.fail(error.message)
     console.log(error.stack)
   }
-})()
+}
+
+module.exports = { generateAssets }

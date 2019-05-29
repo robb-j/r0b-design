@@ -1,36 +1,34 @@
 {
-  "name": "r0b",
-  "private": true,
+  "name": "@robb_j/r0b-design",
   "version": "0.0.0",
   "description": "",
   "main": "src/index.js",
-  "repository": "robb-j/r0b",
+  "bin": "cli/index.js",
+  "repository": "robb-j/r0b-design",
   "author": "Rob Anderson (https://r0b.io)",
   "license": "MIT",
   "scripts": {
     "coverage": "jest --coverage",
     "lint": "eslint src",
-    "postversion": "node tools/buildAndPush.js",
+    "preversion": "node cli/index.js build",
     "prettier": "prettier --write '**/*.{js,json,css,md}'",
-    "start": "node src/index.js",
     "test": "jest",
-    "dev": "nodemon -q -w src -w build.js -e js,html,hbs,css,sass,scss,md,yml,json build.js"
+    "dev": "node cli/index.js watch"
   },
   "keywords": [],
   "engines": {
     "node": ">=8"
   },
-  "dependencies": {
-    "bulma": "^0.7.5",
-    "dotenv": "^6.2.0",
-    "lodash.set": "^4.3.2",
-    "ncp": "^2.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@types/chokidar": "^2.1.3",
     "@types/glob": "^7.1.1",
     "@types/node": "^11.13.8",
     "@types/sass": "^1.16.0",
-    "@types/yaml": "^1.0.2",
+    "@types/yargs": "^13.0.0",
+    "bulma": "^0.7.5",
+    "chokidar": "^3.0.0",
+    "dotenv": "^8.0.0",
     "eslint": "^5.14.0",
     "eslint-config-prettier": "^4.0.0",
     "eslint-config-standard": "^12.0.0",
@@ -45,12 +43,17 @@
     "husky": "^1.3.1",
     "jest": "^24.1.0",
     "lint-staged": "^8.1.4",
+    "lodash.debounce": "^4.0.8",
+    "lodash.set": "^4.3.2",
     "ms": "^2.1.1",
-    "nodemon": "^1.18.11",
     "ora": "^3.4.0",
     "prettier": "^1.16.4",
     "sass": "^1.19.0",
-    "yaml": "^1.5.0"
+    "yargs": "^13.2.4"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   },
   "husky": {
     "hooks": {
