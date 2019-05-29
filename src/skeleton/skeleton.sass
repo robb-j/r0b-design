@@ -39,21 +39,46 @@ body
     &:not(:first-child)
       margin-left: $gutter * 1
 
-.skeleton-title
-  +skeletonify
-  font-weight: 700
-  font-size: 24px
-  color: $light-text-color
-  margin: 0 0 $gutter
-  user-select: all
-  border-bottom: 1px solid $border-color
+.skeleton-group
+  margin-top: $spacing
+  &:last-child
+    margin-bottom: 33vh
 
-.skeleton-heading
-  +skeletonify
-  font-weight: 700
-  font-size: 17px
-  margin: (2* $gutter) 0 0
-  font-style: italic
+  &> h2, .skeleton-title
+    +skeletonify
+    font-weight: 700
+    font-size: 24px
+    color: $light-text-color
+    margin: 0 0 $gutter
+    user-select: all
+    border-bottom: 1px solid $border-color
+
+  &> h3, .skeleton-heading
+    +skeletonify
+    font-weight: 700
+    font-size: 17px
+    margin: (2* $gutter) 0 0
+    font-style: italic
+  
+  // NOTE: has a horrible hack 0.1px to make sure child margin
+  .skeleton-example
+    $tiny: 0.1px
+    margin: (-$tiny) (-$tiny) $gutter (-$tiny)
+    padding: $tiny
+    &.with-shadow
+      box-shadow: 0 0 $gutter rgba(0, 0, 0, 0.05)
+    &.with-light-box
+      background-color: white
+      box-shadow: 0 0 $gutter rgba(0, 0, 0, 0.05)
+    &.with-dark-box
+      background-color: #666
+      box-shadow: 0 0 $gutter rgba(0, 0, 0, 0.05)
+    &.is-smallish
+      max-width: 320px
+      margin-right: auto
+    &.with-no-padding
+      margin-left: -$gutter
+      margin-right: -$gutter
 
 .skeleton-variable
   margin: 0
@@ -71,20 +96,6 @@ body
   padding: $pad
   background-color: white
 
-.skeleton-group
-  margin-top: $spacing
-  &:last-child
-    margin-bottom: 33vh
-
-// NOTE: has a horrible hack 0.1px to make sure child margin
-.skeleton-example
-  $tiny: 0.1px
-  margin: (-$tiny) (-$tiny) $gutter (-$tiny)
-  padding: $tiny
-  &:not(.is-transparent)
-    background-color: white
-    box-shadow: 0 0 $gutter rgba(0, 0, 0, 0.05)
-
 .color-list
   display: flex
   flex-wrap: wrap
@@ -101,6 +112,14 @@ body
     margin: $pad 0 0
     font-size: 1.2em
 
-.skeleton-sample-box
+.skeleton-white-box
   height: 100px
   background: white
+
+.skeleton-clear-box
+  height: 100px
+  background: transparent
+
+.skeleton-page-box
+  height: 75vh
+  background: transparent

@@ -1,0 +1,39 @@
+.view-more.is-light
+  --link-color: $white
+
+.view-more
+  font-weight: 600
+  font-size: $size-3
+  text-transform: uppercase
+  position: relative
+  display: inline-flex
+  align-items: center
+  margin-right: 1em
+  color: $link
+  
+  &:before
+    content: ''
+    position: absolute
+    left: 0
+    right: 0
+    height: 2px
+    bottom: 0
+    background-color: $link
+  
+  &:after
+    content: ''
+    position: absolute
+    right: -1.3em
+    
+    border-top: 1ex solid transparent
+    border-right: 1ex solid transparent
+    border-bottom: 1ex solid transparent
+    border-left: 1ex solid $link
+  
+  &.is-light
+    color: $white
+    &:before
+      background-color: $white
+    &:after
+      border-left-color: $white
+    
