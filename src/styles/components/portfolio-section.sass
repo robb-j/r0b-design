@@ -1,4 +1,4 @@
-.potfolio-section
+.portfolio-section
   display: grid
   grid: 1fr auto / 352px repeat(2, minmax(min-content, 320px))
   padding: 3em
@@ -8,10 +8,16 @@
   grid-gap: 1em
   
   +tablet-only
+    padding: 3em 2em
     grid-template-columns: repeat(2, minmax(min-content, 320px))
   
   +mobile
+    padding: 3em 1em 1em
     grid: 1fr / auto
+    grid-gap: 1em
+    
+    .project-card
+      margin: 0 1em
   
   .popup-card
     position: relative
@@ -26,6 +32,9 @@
     +tablet-only
       grid-row: 1/2
       grid-column: 1/3
+    
+    +mobile
+      margin-bottom: -3.5em
   
   .clean-card, .project-card
     box-shadow: 0 0 5px rgba(0,0,0,0.2)
