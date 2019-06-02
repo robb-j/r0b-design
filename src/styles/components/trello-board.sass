@@ -1,0 +1,20 @@
+$trello-board-pad: 0.5rem
+
+.trello-board
+  border-radius: $radius-large
+  background-color: #4D9DD0
+  padding: 0 $trello-board-pad $trello-board-pad
+  overflow: hidden
+  .board-header
+    color: $white
+    font-size: $size-6
+    line-height: 2
+    background-color: rgba(0,0,0,.24)
+    margin: 0 (-$trello-board-pad)
+    padding: 0 $trello-board-pad
+  .board-lists
+    display: flex
+    overflow-x: auto
+    .trello-list
+      flex: 0 0 300px
+      margin-right: 8px

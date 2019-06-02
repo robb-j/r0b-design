@@ -1,6 +1,6 @@
 .portfolio-section
   display: grid
-  grid: 1fr auto / 352px repeat(2, minmax(min-content, 320px))
+  grid: 1fr auto / 352px 1fr 1fr
   padding: 3em
   background: $primary
   border-radius: $radius
@@ -9,7 +9,7 @@
   
   +tablet-only
     padding: 3em 2em
-    grid-template-columns: repeat(2, minmax(min-content, 320px))
+    grid-template-columns: 1fr 1fr
   
   +mobile
     padding: 3em 1em 1em

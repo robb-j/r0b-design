@@ -55,7 +55,7 @@
   
   <div class="skeleton-example with-light-box">
     <div class="about-me">
-      <img class="profile-pic" width="128" height="128" src="https://picsum.photos/id/512/512/512">
+      <img class="profile-pic" width="128" height="128" src="{{ @data.image.medium }}">
       <p class="strapline"> I'm making ... stuff </p>
       <div class="links">
         <a class="button is-circle is-twitter">
@@ -95,7 +95,7 @@
   <div class="skeleton-example is-smallish">
     <div class="project-card">
       <a class="card-cover-image" href="#">
-        <div style="background-image: url(https://picsum.photos/id/512/512/512)">
+        <div style="background-image: url({{ @data.image.medium }})">
         </div>
       </a>
       <div class="card-content">
@@ -124,7 +124,7 @@
     
     <div class="project-card">
       <a class="card-cover-image" href="#">
-        <div style="background-image: url(https://picsum.photos/id/512/512/512)">
+        <div style="background-image: url({{ @data.image.medium }})">
         </div>
       </a>
       <div class="card-content">
@@ -136,7 +136,7 @@
     
     <div class="project-card">
       <a class="card-cover-image" href="#">
-        <div style="background-image: url(https://picsum.photos/id/512/512/512)">
+        <div style="background-image: url({{ @data.image.medium }})">
         </div>
       </a>
       <div class="card-content">
@@ -148,7 +148,7 @@
     
     <div class="project-card">
       <a class="card-cover-image" href="#">
-        <div style="background-image: url(https://picsum.photos/id/512/512/512)">
+        <div style="background-image: url({{ @data.image.medium }})">
         </div>
       </a>
       <div class="card-content">
@@ -184,14 +184,16 @@
 </div>
 
 <div class="skeleton-group">
-  <h2>trello list</h2>
+  <h2>trello</h2>
+  
+  <h3>list</h3>
   <div class="skeleton-example is-smallish">
     <div class="trello-list">
       <p class="list-title">To-do</p>
       
       <div class="project-card">
         <a class="card-cover-image" href="#">
-          <div style="background-image: url(https://picsum.photos/id/512/512/512)">
+          <div style="background-image: url({{ @data.image.medium }})">
           </div>
         </a>
         <div class="card-content">
@@ -208,6 +210,41 @@
       <div class="project-card">
         <div class="card-content">
           <p><a href="#">Spontaneous project alpha</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <h3>board</h3>
+  <div class="skeleton-example">
+    <div class="trello-board">
+      <div class="board-header">
+        <h3 class="board-title"> {{ @data.text.title }} </h3>
+      </div>
+      <div class="board-lists">
+        <div class="trello-list">
+          <p class="list-title">To-do</p>
+          <div class="project-card">
+            <div class="card-content">
+              <p><a href="#">Spontaneous project alpha</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="trello-list">
+          <p class="list-title">To-do</p>
+          <div class="project-card">
+            <div class="card-content">
+              <p><a href="#">Spontaneous project alpha</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="trello-list">
+          <p class="list-title">To-do</p>
+          <div class="project-card">
+            <div class="card-content">
+              <p><a href="#">Spontaneous project alpha</a></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
