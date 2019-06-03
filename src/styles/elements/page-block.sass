@@ -1,4 +1,4 @@
-$page-block-size: 50px
+$page-block-size: 7vw
 
 =setup-slope
   content: ''
@@ -29,20 +29,12 @@ $page-block-colors: (("magenta", $magenta), ("liberty", $liberty), ("deep-koamar
       margin-bottom: -$page-block-size 
       padding-bottom: $page-block-size
   
-  // &:not(.has-slope-before)
-  //   margin-top: -$page-block-size 
-  //   padding-top: $page-block-size
-  
-  // &:not(.has-slope-after)
-  //   margin-bottom: -$page-block-size 
-  //   padding-bottom: $page-block-size
-  
   &.has-slope-after
     margin-bottom: $page-block-size
     
     &::after
       +setup-slope
-      bottom: 1px - $page-block-size
+      bottom: -$page-block-size
       border-left: 100vw solid var(--block-color, #{$primary})
       border-bottom: $page-block-size solid transparent
   
@@ -50,12 +42,6 @@ $page-block-colors: (("magenta", $magenta), ("liberty", $liberty), ("deep-koamar
     margin-top: $page-block-size
     &::before
       +setup-slope
-      top: (1px - $page-block-size)
+      top: - $page-block-size
       border-left: 100vw solid var(--block-color, #{$primary})
       border-top: $page-block-size solid transparent
-
-// NOTE: automatically conditionally add padding to offset the slope?
-//       ~ otherwise it bakes in that 'paper' is the seperator
-// .page-block.has-slope-after +.page-block
-//   margin-top: -$page-block-size 
-//   padding-top: $page-block-size
