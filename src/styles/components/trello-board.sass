@@ -3,20 +3,28 @@ $trello-board-pad: 0.5rem
 .trello-board
   border-radius: $radius-large
   background-color: #4D9DD0
-  padding: 0 $trello-board-pad $trello-board-pad
   overflow: hidden
   .board-header
     color: $white
     font-size: $size-6
     line-height: 2
     background-color: rgba(0,0,0,.24)
-    margin: 0 (-$trello-board-pad)
     padding: 0 $trello-board-pad
   .board-lists
     display: flex
     align-items: flex-start
     overflow-x: auto
-    margin-bottom: 5em
+    padding: 0 $trello-board-pad
+    // margin-right: $trello-board-pad
+    padding-bottom: $trello-board-pad
+    -webkit-overflow-scrolling: touch
     .trello-list
-      flex: 0 0 300px
+      display: inline-block
+      flex: 0 0 calc(300px - #{$trello-board-pad})
       margin-right: 8px
+    &:after
+      content: ''
+      display: block
+      flex: 0 0 1px
+      height: 1px
+      margin-right: -1px
