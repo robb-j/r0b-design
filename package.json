@@ -14,7 +14,8 @@
     "preversion": "node cli/index.js build",
     "prettier": "prettier --write '**/*.{js,json,css,md}'",
     "test": "jest",
-    "dev": "node cli/index.js watch"
+    "dev": "node cli/index.js watch",
+    "build": "node cli/index.js build"
   },
   "keywords": [],
   "engines": {
