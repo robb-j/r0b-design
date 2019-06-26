@@ -146,7 +146,7 @@ async function generateAssets({ website = false, verbose = false }) {
     data.assets = await loadAssets()
     watch.record('#loadAssets')
 
-    await exec(`cp -R src/assets dist`)
+    await exec(`cp -R src/assets/* dist`)
     watch.record('#copyAssets')
 
     if (website) {
