@@ -1,6 +1,6 @@
 {
   "name": "@robb_j/r0b-design",
-  "version": "0.2.4",
+  "version": "0.2.7",
   "description": "",
   "repository": "robb-j/r0b-design",
   "author": "Rob Anderson (https://r0b.io)",
@@ -14,7 +14,8 @@
     "preversion": "node cli/index.js build",
     "prettier": "prettier --write '**/*.{js,json,css,md}'",
     "test": "jest",
-    "dev": "node cli/index.js watch"
+    "dev": "node cli/index.js watch",
+    "build": "node cli/index.js build"
   },
   "keywords": [],
   "engines": {
